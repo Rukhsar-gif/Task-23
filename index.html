@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="calculator-card">
+    <header class="app-header">
+      <span class="badge">TASK 23 </span>
+      <h1>Tip Calculator</h1>
+      <p class="subtitle">Calculate split bill, custom tip percentage, and individual totals in real-time.</p>
+    </header>
+
+    <div class="app-grid">
+      <!-- Input Panel -->
+      <section class="input-section">
+        <!-- Bill Amount Input -->
+        <div class="input-group">
+          <label for="bill-input">Bill Amount</label>
+          <div class="input-wrapper">
+            <span class="currency-symbol">₹</span>
+            <input type="number" id="bill-input" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+
+        <!-- Tip Selection -->
+        <div class="input-group">
+          <label>Select Tip %</label>
+          <div class="tip-grid">
+            <button class="tip-btn" data-tip="5">5%</button>
+            <button class="tip-btn" data-tip="10">10%</button>
+            <button class="tip-btn active" data-tip="15">15%</button>
+            <button class="tip-btn" data-tip="20">20%</button>
+            <button class="tip-btn" data-tip="25">25%</button>
+            <input type="number" id="custom-tip" min="0" max="100" placeholder="Custom" class="custom-tip-input">
+          </div>
+        </div>
+
+        <!-- Number of People Input -->
+        <div class="input-group">
+          <div class="label-row">
+            <label for="people-input">Number of People</label>
+            <span class="error-msg" id="people-error">Can't be zero</span>
+          </div>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <input type="number" id="people-input" min="1" value="1" placeholder="1">
+          </div>
+        </div>
+      </section>
+
+      <!-- Output Display Panel -->
+      <section class="display-section">
+        <div class="results">
+          <div class="result-row">
+            <div class="result-label">
+              <span class="title">Tip Amount</span>
+              <span class="sub">/ person</span>
+            </div>
+            <div class="result-value" id="tip-per-person">₹0.00</div>
+          </div>
+
+          <div class="result-row">
+            <div class="result-label">
+              <span class="title">Total</span>
+              <span class="sub">/ person</span>
+            </div>
+            <div class="result-value" id="total-per-person">₹0.00</div>
+          </div>
+        </div>
+
+        <button id="reset-btn" class="reset-btn">RESET</button>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
